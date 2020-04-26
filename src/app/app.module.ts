@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 
 import { AppComponent } from './app.component';
+import { MyStepperComponent } from './stepper/my-stepper/my-stepper.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyStepperComponent],
   imports: [BrowserModule, CdkStepperModule],
   providers: [],
   bootstrap: [AppComponent],
