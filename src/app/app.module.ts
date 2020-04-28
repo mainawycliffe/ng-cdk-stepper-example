@@ -5,9 +5,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { MyStepperComponent } from './stepper/my-stepper/my-stepper.component';
+import { MyStepperHeaderComponent } from './stepper/my-stepper-header/my-stepper-header.component';
 
 @NgModule({
-  declarations: [AppComponent, MyStepperComponent],
+  declarations: [AppComponent, MyStepperComponent, MyStepperHeaderComponent],
   imports: [BrowserModule, CdkStepperModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],

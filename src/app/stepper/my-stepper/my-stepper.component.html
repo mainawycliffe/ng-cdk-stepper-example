@@ -5,7 +5,7 @@
       <ng-container *ngFor="let step of steps; let i = index;">
         <li class="step" [ngClass]="{'active': selectedIndex === i}">
           <a (click)="onClick(i)">
-            {{ i + 1 }}. {{step.label}}
+            <app-my-stepper-header [step]="step"></app-my-stepper-header>
           </a>
         </li>
       </ng-container>
