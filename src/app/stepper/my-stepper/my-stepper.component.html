@@ -1,5 +1,37 @@
 <section class="container">
-  <div [style.display]="selected ? 'block' : 'none'">
+  <!-- The navbar for the wizard -->
+  <header class="header">
+    <ol>
+      <ng-container *ngFor="let step of steps; let i = index;">
+        <li class="step" [ngClass]="{'active': selectedIndex === i}">
+          <a (click)="onClick(i)">
+            {{ i + 1 }}. {{step.label}}
+          </a>
+        </li>
+      </ng-container>
+    </ol>
+  </header>
+
+  <div class="body" [style.display]="selected ? 'block' : 'none'">
     <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
   </div>
+
+  <footer class="my-footer">
+    <div>
+      <button class="button is-outline is-danger" cdkStepperPrevious>
+        <span class="icon medium">
+          <fa-icon [icon]="faChevronLeft"> </fa-icon>
+        </span>
+        <span> Previous</span>
+      </button>
+    </div>
+    <div>
+      <button class="button is-outline is-primary" cdkStepperNext>
+        <span> Next</span>
+        <span class="icon medium">
+          <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
+        </span>
+      </button>
+    </div>
+  </footer>
 </section>

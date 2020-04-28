@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkStep, CdkStepper } from '@angular/cdk/stepper';
+import { CdkStepper } from '@angular/cdk/stepper';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-my-stepper',
@@ -8,13 +12,13 @@ import { CdkStep, CdkStepper } from '@angular/cdk/stepper';
   providers: [{ provide: CdkStepper, useExisting: MyStepperComponent }],
 })
 export class MyStepperComponent extends CdkStepper implements OnInit {
-  // constructor() {
-  //   super();
-  // }
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
 
   ngOnInit(): void {}
 
   onClick(index: number): void {
+    console.log(this.selected);
     this.selectedIndex = index;
   }
 }
