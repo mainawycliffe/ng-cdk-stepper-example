@@ -26,7 +26,8 @@
       </button>
     </div>
     <div>
-      <button class="button is-outline is-primary" cdkStepperNext>
+      <button [disabled]="linear && !selected.optional && selected.hasError" class="button is-outline is-primary"
+        cdkStepperNext>
         <span> Next</span>
         <span class="icon medium">
           <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
