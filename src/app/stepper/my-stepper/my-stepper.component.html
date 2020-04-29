@@ -17,15 +17,14 @@
   </div>
 
   <footer class="my-footer">
-    <div>
+    <div class="buttons">
       <button class="button is-outline is-danger" cdkStepperPrevious>
         <span class="icon medium">
           <fa-icon [icon]="faChevronLeft"> </fa-icon>
         </span>
         <span> Previous</span>
       </button>
-    </div>
-    <div>
+
       <button [disabled]="linear && !selected.optional && selected.hasError" class="button is-outline is-primary"
         cdkStepperNext>
         <span> Next</span>
