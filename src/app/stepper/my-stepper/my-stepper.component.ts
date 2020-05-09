@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CdkStepper } from '@angular/cdk/stepper';
 import {
   faChevronLeft,
@@ -12,6 +12,9 @@ import {
   providers: [{ provide: CdkStepper, useExisting: MyStepperComponent }],
 })
 export class MyStepperComponent extends CdkStepper implements OnInit {
+  @Input()
+  showFooter = false;
+
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
 
