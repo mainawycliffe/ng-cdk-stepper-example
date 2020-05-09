@@ -11,14 +11,12 @@ import {
   styleUrls: ['./my-stepper.component.scss'],
   providers: [{ provide: CdkStepper, useExisting: MyStepperComponent }],
 })
-export class MyStepperComponent extends CdkStepper implements OnInit {
+export class MyStepperComponent extends CdkStepper {
   @Input()
   showFooter = false;
 
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
-
-  ngOnInit(): void {}
 
   onClick(index: number): void {
     console.log(this.selected);
