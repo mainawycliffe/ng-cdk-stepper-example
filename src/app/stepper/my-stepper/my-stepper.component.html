@@ -3,9 +3,13 @@
   <header class="header">
     <ol>
       <ng-container *ngFor="let step of steps; let i = index;">
-        <li class="step" [ngClass]="{'active': selectedIndex === i}">
-          <a (click)="onClick(i)">
-            <app-my-stepper-header [step]="step"></app-my-stepper-header>
+        <li [ngClass]="{'active': selectedIndex === i}">
+          <a (click)="selectedIndex = i">
+            <ng-container *ngIf="step.stepLabel; else showLabelText" [ngTemplateOutlet]="step.stepLabel.template">
+            </ng-container>
+            <ng-template #showLabelText>
+              {{ step.label }}
+            </ng-template>
           </a>
         </li>
       </ng-container>

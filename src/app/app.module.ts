@@ -6,10 +6,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MyStepperComponent } from './stepper/my-stepper/my-stepper.component';
-import { MyStepperHeaderComponent } from './stepper/my-stepper-header/my-stepper-header.component';
 
 @NgModule({
-  declarations: [AppComponent, MyStepperComponent, MyStepperHeaderComponent],
+  declarations: [AppComponent, MyStepperComponent],
   imports: [
     BrowserModule,
     CdkStepperModule,
