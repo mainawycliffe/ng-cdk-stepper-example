@@ -9,16 +9,11 @@ import { AppComponent } from './app.component';
 import { MyStepperComponent } from './stepper/my-stepper/my-stepper.component';
 import { SingleFormComponent } from './examples/single-form/single-form.component';
 import { MultipleFormsComponent } from './examples/multiple-forms/multiple-forms.component';
-import { NoFormComponent } from './examples/no-form/no-form.component';
 
 const routes: Route[] = [
   {
     path: '',
     component: MultipleFormsComponent,
-  },
-  {
-    path: 'no-form',
-    component: NoFormComponent,
   },
   {
     path: 'single-form',
@@ -36,7 +31,6 @@ const routes: Route[] = [
     MyStepperComponent,
     SingleFormComponent,
     MultipleFormsComponent,
-    NoFormComponent,
   ],
   imports: [
     BrowserModule,
