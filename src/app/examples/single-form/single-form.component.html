@@ -1,6 +1,6 @@
 <form [formGroup]="frm" (submit)="submit()">
-  <app-my-stepper #cdkStepper formArrayName="steps" linear="true">
-    <cdk-step label="Personal Details" formGroupName="0" [stepControl]="formArray.get([0])">
+  <app-my-stepper #cdkStepper formArrayName="steps" [linear]="isLinear">
+    <cdk-step [editable]="isEditable" formGroupName="0" [stepControl]="formArray.get([0])">
       <ng-template cdkStepLabel>
         <span class="icon is-medium">
           <fa-icon [icon]="faPerson" size="fa-lg"></fa-icon>
@@ -52,7 +52,7 @@
         </footer>
       </div>
     </cdk-step>
-    <cdk-step formGroupName="1" [stepControl]="formArray.get([1])">
+    <cdk-step [editable]="isEditable" formGroupName="1" [stepControl]="formArray.get([1])">
       <ng-template cdkStepLabel>
         <span class="icon is-medium">
           <fa-icon [icon]="faAddressBook" size="fa-lg"></fa-icon>
@@ -127,7 +127,7 @@
         </footer>
       </div>
     </cdk-step>
-    <cdk-step formGroupName="2" [stepControl]="formArray.get([2])">
+    <cdk-step [editable]="isEditable" formGroupName="2" [stepControl]="formArray.get([2])">
       <ng-template cdkStepLabel>
         <span class="icon is-medium">
           <fa-icon [icon]="faCreditCard" size="fa-lg"></fa-icon>

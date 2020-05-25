@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {
   faUser,
@@ -16,6 +16,12 @@ import {
   styleUrls: ['./multiple-forms.component.scss'],
 })
 export class MultipleFormsComponent implements OnInit {
+  @Input()
+  isLinear = true;
+
+  @Input()
+  isEditable = true;
+
   faPerson = faUser;
   faAddressBook = faAddressBook;
   faCreditCard = faCreditCard;

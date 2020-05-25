@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import {
   faUser,
@@ -16,6 +16,12 @@ import {
   styleUrls: ['./single-form.component.scss'],
 })
 export class SingleFormComponent implements OnInit {
+  @Input()
+  isLinear = true;
+
+  @Input()
+  isEditable = true;
+
   frmValues: object = {};
 
   faPerson = faUser;

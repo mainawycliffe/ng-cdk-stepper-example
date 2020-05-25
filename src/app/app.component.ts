@@ -12,22 +12,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  faPerson = faUser;
-  faAddressBook = faAddressBook;
-  faCreditCard = faCreditCard;
+  isEditable = false;
+  isLinear = true;
 
-  frmDetails = this.fb.group({
-    firstName: ['First Name', Validators.compose([Validators.required])],
-    lastName: ['Last Name', Validators.compose([Validators.required])],
-    email: [
-      'johndoe@example.com',
-      Validators.compose([Validators.required, Validators.email]),
-    ],
-  });
-
-  constructor(private fb: FormBuilder) {}
-
-  frmSubmit(frm: FormGroup) {
-    console.log(frm);
-  }
+  constructor() {}
 }

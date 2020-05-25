@@ -1,12 +1,26 @@
+<div class="section has-background-light">
+  <div class="container">
+    <h1 class="title">Demo for Custom Stepper with Angular CDK</h1>
+    <!-- toggle controls here -->
+    <div class="buttons">
+      <button (click)="isEditable = !isEditable" class="button is-primary">
+        {{ isEditable ? "Disable edit mode" : "Enable edit mode" }}
+      </button>
+      <button (click)="isLinear = !isLinear" class="button is-primary">
+        {{ isLinear ? "Disable linear mode" : "Enable linear mode" }}
+      </button>
+    </div>
+  </div>
+</div>
 <div class="section">
   <div class="container">
     <h2 class="title is-4"> Multiple Forms CDK Stepper</h2>
-    <app-multiple-forms></app-multiple-forms>
+    <app-multiple-forms [isEditable]="isEditable" [isLinear]="isLinear"></app-multiple-forms>
   </div>
 </div>
 <div class="section has-background-light">
   <div class="container">
     <h2 class="title is-4"> Single Form CDK Stepper</h2>
-    <app-single-form></app-single-form>
+    <app-single-form [isEditable]="isEditable" [isLinear]="isLinear"></app-single-form>
   </div>
 </div>

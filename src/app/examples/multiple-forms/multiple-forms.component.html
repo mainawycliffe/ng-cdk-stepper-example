@@ -1,5 +1,5 @@
-<app-my-stepper #cdkStepper linear="true">
-  <cdk-step label="Personal Details" [stepControl]="frmDetails" [optional]="false">
+<app-my-stepper #cdkStepper [linear]="isLinear">
+  <cdk-step label="Personal Details" [editable]="isEditable" [stepControl]="frmDetails" [optional]="false">
     <ng-template cdkStepLabel>
       <span class="icon is-medium">
         <fa-icon [icon]="faPerson" size="fa-lg"></fa-icon>
@@ -53,7 +53,7 @@
 
     </form>
   </cdk-step>
-  <cdk-step>
+  <cdk-step [editable]="isEditable" [stepControl]="frmAddress">
     <!-- using template -->
     <ng-template cdkStepLabel>
       <span class="icon is-medium">
@@ -129,7 +129,7 @@
       </div>
     </form>
   </cdk-step>
-  <cdk-step label="Payment Information">
+  <cdk-step [editable]="isEditable" [stepControl]="frmPayment">
     <ng-template cdkStepLabel>
       <span class="icon is-medium">
         <fa-icon [icon]="faCreditCard" size="fa-lg"></fa-icon>
