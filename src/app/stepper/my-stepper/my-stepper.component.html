@@ -3,7 +3,7 @@
   <header class="header">
     <ol>
       <ng-container *ngFor="let step of steps; let i = index;">
-        <li [ngClass]="{ activeClass: selectedIndex === i}">
+        <li [ngClass]="(selectedIndex === i) ? activeClass : ''">
           <a (click)="selectedIndex = i">
             <ng-container *ngIf="step.stepLabel; else showLabelText" [ngTemplateOutlet]="step.stepLabel.template">
             </ng-container>

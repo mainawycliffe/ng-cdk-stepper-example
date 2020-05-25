@@ -4,6 +4,10 @@ import {
   faUser,
   faAddressBook,
   faCreditCard,
+  faChevronLeft,
+  faChevronRight,
+  faSave,
+  faBan,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,6 +19,11 @@ export class MultipleFormsComponent implements OnInit {
   faPerson = faUser;
   faAddressBook = faAddressBook;
   faCreditCard = faCreditCard;
+  faChevronLeft = faChevronLeft;
+  faChevronRight = faChevronRight;
+  faSave = faSave;
+
+  faBan = faBan;
   frmDetails = this.fb.group({
     firstName: ['First Name', Validators.compose([Validators.required])],
     lastName: ['Last Name', Validators.compose([Validators.required])],

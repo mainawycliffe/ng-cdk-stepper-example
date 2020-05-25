@@ -1,134 +1,200 @@
-<div class="section is-fullscreen">
-  <app-my-stepper linear="true">
-    <cdk-step label="Personal Details" [stepControl]="frmDetails" [optional]="false">
-      <ng-template cdkStepLabel>
-        <span class="icon is-medium">
-          <fa-icon [icon]="faPerson" size="fa-lg"></fa-icon>
-        </span>
-        <span>Personal Details</span>
-      </ng-template>
-      <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmDetails">
-        <div class="container">
-          <div class="field is-horizontal">
-            <div class="field-body">
-              <div class="field">
-                <label class="label">First Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="firstName" class="input" type="text" placeholder="First Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Last Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="lastName" class="input" type="text" placeholder="Last Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
+<app-my-stepper #cdkStepper linear="true">
+  <cdk-step label="Personal Details" [stepControl]="frmDetails" [optional]="false">
+    <ng-template cdkStepLabel>
+      <span class="icon is-medium">
+        <fa-icon [icon]="faPerson" size="fa-lg"></fa-icon>
+      </span>
+      <span>Personal Details</span>
+    </ng-template>
+    <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmDetails">
+      <div class="container">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field">
+              <label class="label">First Name</label>
+              <p class="control is-expanded has-icons-right">
+                <input formControlName="firstName" class="input" type="text" placeholder="First Name">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
             </div>
-          </div>
-          <div class="field">
-            <label class="label">Email Address</label>
-            <div class="control has-icons-right">
-              <input formControlName="email" class="input" type="text" placeholder="Text input">
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
+            <div class="field">
+              <label class="label">Last Name</label>
+              <p class="control is-expanded has-icons-right">
+                <input formControlName="lastName" class="input" type="text" placeholder="Last Name">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
             </div>
           </div>
         </div>
-      </form>
-    </cdk-step>
-    <cdk-step>
-      <!-- using template -->
-      <ng-template cdkStepLabel>
-        <span class="icon is-medium">
-          <fa-icon [icon]="faAddressBook" size="fa-lg"></fa-icon>
-        </span>
-        <span>Address</span>
-      </ng-template>
-      <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmDetails">
-        <div class="container">
-          <div class="field is-horizontal">
-            <div class="field-body">
-              <div class="field">
-                <label class="label">First Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="firstName" class="input" type="text" placeholder="First Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Last Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="lastName" class="input" type="text" placeholder="Last Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-            </div>
+        <div class="field">
+          <label class="label">Email Address</label>
+          <div class="control has-icons-right">
+            <input formControlName="email" class="input" type="text" placeholder="Text input">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
           </div>
-          <div class="field">
-            <label class="label">Email Address</label>
-            <div class="control has-icons-right">
-              <input formControlName="email" class="input" type="text" placeholder="Text input">
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+        </div>
+        <footer class="my-footer">
+          <div class="buttons">
+            <button [disabled]="frmDetails.invalid" class="button is-outline is-primary" cdkStepperNext>
+              <span> Next</span>
+              <span class="icon medium">
+                <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
               </span>
+            </button>
+          </div>
+        </footer>
+      </div>
+
+    </form>
+  </cdk-step>
+  <cdk-step>
+    <!-- using template -->
+    <ng-template cdkStepLabel>
+      <span class="icon is-medium">
+        <fa-icon [icon]="faAddressBook" size="fa-lg"></fa-icon>
+      </span>
+      <span>Address</span>
+    </ng-template>
+    <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmAddress">
+      <div class="container">
+        <div class="field">
+          <label class="label">Address One</label>
+          <p class="control is-expanded has-icons-right">
+            <input formControlName="addressOne" class="input" type="text" placeholder="Address One">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">Address Two</label>
+          <p class="control is-expanded has-icons-right">
+            <input formControlName="addressTwo" class="input" type="text" placeholder="Address Two">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">City</label>
+          <p class="control is-expanded has-icons-right">
+            <input formControlName="city" class="input" type="text" placeholder="City">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <label class="label">County/State/Region</label>
+          <div class="control has-icons-right">
+            <input formControlName="county" class="input" type="text" placeholder="County/State">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Country</label>
+          <div class="control has-icons-right">
+            <input formControlName="country" class="input" type="text" placeholder="Country">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <footer class="my-footer">
+          <div class="buttons">
+            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+              <span class="icon medium">
+                <fa-icon [icon]="faChevronLeft"> </fa-icon>
+              </span>
+              <span> Previous</span>
+            </button>
+
+            <button [disabled]="frmAddress.invalid" type="button" class="button is-outline is-primary" cdkStepperNext>
+              <span> Next</span>
+              <span class="icon medium">
+                <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
+              </span>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </form>
+  </cdk-step>
+  <cdk-step label="Payment Information">
+    <ng-template cdkStepLabel>
+      <span class="icon is-medium">
+        <fa-icon [icon]="faCreditCard" size="fa-lg"></fa-icon>
+      </span>
+      <span>Payment Information</span>
+    </ng-template>
+    <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmPayment">
+      <div class="container">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field">
+              <label class="label">Credit Card Number</label>
+              <p class="control is-expanded has-icons-right">
+                <input formControlName="creditCardNo" class="input" type="text" placeholder="Credit Card No.">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <label class="label">Expiry</label>
+              <p class="control is-expanded has-icons-right">
+                <input formControlName="expiryDate" class="input" type="text" placeholder="10/2020">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span>
+              </p>
             </div>
           </div>
         </div>
-      </form>
-    </cdk-step>
-    <cdk-step label="Payment Information">
-      <ng-template cdkStepLabel>
-        <span class="icon is-medium">
-          <fa-icon [icon]="faCreditCard" size="fa-lg"></fa-icon>
-        </span>
-        <span>Payment Information</span>
-      </ng-template>
-      <form (ngSubmit)="frmSubmit(frmDetails)" [formGroup]="frmDetails">
-        <div class="container">
-          <div class="field is-horizontal">
-            <div class="field-body">
-              <div class="field">
-                <label class="label">First Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="firstName" class="input" type="text" placeholder="First Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <label class="label">Last Name</label>
-                <p class="control is-expanded has-icons-right">
-                  <input formControlName="lastName" class="input" type="text" placeholder="Last Name">
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Email Address</label>
-            <div class="control has-icons-right">
-              <input formControlName="email" class="input" type="text" placeholder="Text input">
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
-            </div>
+        <div class="field">
+          <label class="label">CVV Code</label>
+          <div class="control has-icons-right">
+            <input formControlName="cvvCode" class="input" type="number" placeholder="CVV Code">
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
           </div>
         </div>
-      </form>
-    </cdk-step>
-  </app-my-stepper>
-</div>
+
+        <footer class="my-footer">
+          <div class="buttons">
+            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+              <span class="icon medium">
+                <fa-icon [icon]="faChevronLeft"> </fa-icon>
+              </span>
+              <span> Previous</span>
+            </button>
+
+            <button type="button" class="button is-outline is-danger" (click)="cdkStepper.reset()">
+              <span class="icon medium">
+                <fa-icon [icon]="faBan"> </fa-icon>
+              </span>
+              <span>Reset</span>
+            </button>
+
+            <button type="submit" [disabled]="frmPayment.invalid" class="button is-outline is-primary">
+              <span class="icon medium">
+                <fa-icon [icon]="faSave" size="fa-lg"> </fa-icon>
+              </span>
+              <span>Save</span>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </form>
+  </cdk-step>
+</app-my-stepper>
