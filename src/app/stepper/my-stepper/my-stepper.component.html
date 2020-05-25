@@ -3,7 +3,7 @@
   <header class="header">
     <ol>
       <ng-container *ngFor="let step of steps; let i = index;">
-        <li [ngClass]="{'active': selectedIndex === i}">
+        <li [ngClass]="{ activeClass: selectedIndex === i}">
           <a (click)="selectedIndex = i">
             <ng-container *ngIf="step.stepLabel; else showLabelText" [ngTemplateOutlet]="step.stepLabel.template">
             </ng-container>
@@ -19,26 +19,4 @@
   <div class="body" [style.display]="selected ? 'block' : 'none'">
     <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
   </div>
-
-  <ng-container *ngIf="showFooter">
-    <footer class="my-footer">
-      <div class="buttons">
-        <button *ngIf="!(selectedIndex === 0)" type="button" class="button is-outline is-danger" cdkStepperPrevious>
-          <span class="icon medium">
-            <fa-icon [icon]="faChevronLeft"> </fa-icon>
-          </span>
-          <span> Previous</span>
-        </button>
-
-        <button *ngIf="isNextButtonHidden()" type="button"
-          [disabled]="linear && !selected.optional && selected.hasError" class="button is-outline is-primary"
-          cdkStepperNext>
-          <span> Next</span>
-          <span class="icon medium">
-            <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
-          </span>
-        </button>
-      </div>
-    </footer>
-  </ng-container>
 </section>

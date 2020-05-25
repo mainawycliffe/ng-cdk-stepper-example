@@ -13,10 +13,7 @@ import {
 })
 export class MyStepperComponent extends CdkStepper {
   @Input()
-  showFooter = false;
-
-  faChevronLeft = faChevronLeft;
-  faChevronRight = faChevronRight;
+  activeClass = 'active';
 
   isNextButtonHidden() {
     return !(this.steps.length === this.selectedIndex + 1);
