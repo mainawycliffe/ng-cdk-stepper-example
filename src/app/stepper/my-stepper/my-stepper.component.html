@@ -23,14 +23,15 @@
   <ng-container *ngIf="showFooter">
     <footer class="my-footer">
       <div class="buttons">
-        <button class="button is-outline is-danger" cdkStepperPrevious>
+        <button *ngIf="!(selectedIndex === 0)" type="button" class="button is-outline is-danger" cdkStepperPrevious>
           <span class="icon medium">
             <fa-icon [icon]="faChevronLeft"> </fa-icon>
           </span>
           <span> Previous</span>
         </button>
 
-        <button [disabled]="linear && !selected.optional && selected.hasError" class="button is-outline is-primary"
+        <button *ngIf="isNextButtonHidden()" type="button"
+          [disabled]="linear && !selected.optional && selected.hasError" class="button is-outline is-primary"
           cdkStepperNext>
           <span> Next</span>
           <span class="icon medium">

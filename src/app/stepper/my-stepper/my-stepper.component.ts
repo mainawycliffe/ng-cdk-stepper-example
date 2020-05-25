@@ -18,8 +18,7 @@ export class MyStepperComponent extends CdkStepper {
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
 
-  onClick(index: number): void {
-    console.log(this.selected);
-    this.selectedIndex = index;
+  isNextButtonHidden() {
+    return !(this.steps.length === this.selectedIndex + 1);
   }
 }
