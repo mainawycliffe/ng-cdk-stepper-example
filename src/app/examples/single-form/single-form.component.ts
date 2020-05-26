@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  AbstractControl,
+  FormGroup,
+} from '@angular/forms';
 import {
   faUser,
   faAddressBook,
@@ -33,47 +38,47 @@ export class SingleFormComponent implements OnInit {
 
   faBan = faBan;
 
-  frmDetails = this.fb.group({
-    firstName: ['First Name', Validators.compose([Validators.required])],
-    lastName: ['Last Name', Validators.compose([Validators.required])],
-    phone: [null], // optional
-    email: [
-      'johndoe@example.com',
-      Validators.compose([Validators.required, Validators.email]),
-    ],
-  });
-
-  frmAddress = this.fb.group({
-    addressOne: [null, Validators.compose([Validators.required])],
-    addressTwo: [null], // optional
-    city: [null, Validators.compose([Validators.required])],
-    county: [null, Validators.compose([Validators.required])],
-    country: [null, Validators.compose([Validators.required])],
-  });
-
-  frmPayment = this.fb.group({
-    creditCardNo: [
-      '4111 1111 1111 1111',
-      Validators.compose([Validators.required]),
-    ],
-    expiryDate: ['', Validators.compose([Validators.required])],
-    cvvCode: ['', Validators.compose([Validators.required])],
-  });
-
-  frm = this.fb.group({
-    steps: this.fb.array([this.frmDetails, this.frmAddress, this.frmPayment]),
-  });
+  frmStepper: FormGroup;
 
   get formArray(): AbstractControl {
-    return this.frm.get('steps');
+    return this.frmStepper.get('steps');
   }
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fb.group({
+      steps: this.fb.array([
+        this.fb.group({
+          firstName: ['First Name', Validators.compose([Validators.required])],
+          lastName: ['Last Name', Validators.compose([Validators.required])],
+          phone: [null], // optional
+          email: [
+            'johndoe@example.com',
+            Validators.compose([Validators.required, Validators.email]),
+          ],
+        }),
+        this.fb.group({
+          addressOne: [null, Validators.compose([Validators.required])],
+          addressTwo: [null], // optional
+          city: [null, Validators.compose([Validators.required])],
+          county: [null, Validators.compose([Validators.required])],
+          country: [null, Validators.compose([Validators.required])],
+        }),
+        this.fb.group({
+          creditCardNo: [
+            '4111 1111 1111 1111',
+            Validators.compose([Validators.required]),
+          ],
+          expiryDate: ['', Validators.compose([Validators.required])],
+          cvvCode: ['', Validators.compose([Validators.required])],
+        }),
+      ]),
+    });
+  }
 
   submit(): void {
-    console.log(this.frm.value);
-    this.frmValues = this.frm.value;
+    console.log(this.frmStepper.value);
+    this.frmValues = this.frmStepper.value;
   }
 }

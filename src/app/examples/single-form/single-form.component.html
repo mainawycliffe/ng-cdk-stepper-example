@@ -1,4 +1,4 @@
-<form [formGroup]="frm" (submit)="submit()">
+<form [formGroup]="frmStepper" (submit)="submit()">
   <app-my-stepper #cdkStepper formArrayName="steps" [linear]="isLinear">
     <cdk-step [editable]="isEditable" formGroupName="0" [stepControl]="formArray.get([0])">
       <ng-template cdkStepLabel>
@@ -183,7 +183,7 @@
               <span>Reset</span>
             </button>
 
-            <button type="submit" [disabled]="frm.invalid" class="button is-outline is-primary">
+            <button type="submit" [disabled]="frmStepper.invalid" class="button is-outline is-primary">
               <span class="icon medium">
                 <fa-icon [icon]="faSave" size="fa-lg"> </fa-icon>
               </span>
