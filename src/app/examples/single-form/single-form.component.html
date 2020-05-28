@@ -42,7 +42,7 @@
 
         <footer class="my-footer">
           <div class="buttons">
-            <button class="button is-outline is-primary" cdkStepperNext>
+            <button [disabled]="formArray.get([0]).invalid" class="button is-outline is-primary" cdkStepperNext>
               <span> Next</span>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
@@ -52,7 +52,7 @@
         </footer>
       </div>
     </cdk-step>
-    <cdk-step [editable]="isEditable" formGroupName="1" [stepControl]="formArray.get([1])">
+    <cdk-step #stepAddress [editable]="isEditable" formGroupName="1" [stepControl]="formArray.get([1])">
       <ng-template cdkStepLabel>
         <span class="icon is-medium">
           <fa-icon [icon]="faAddressBook" size="fa-lg"></fa-icon>
@@ -110,14 +110,15 @@
 
         <footer class="my-footer">
           <div class="buttons">
-            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+            <button [disabled]="!isEditable" type="button" class="button is-outline is-warning" cdkStepperPrevious>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronLeft"> </fa-icon>
               </span>
               <span> Previous</span>
             </button>
 
-            <button type="button" class="button is-outline is-primary" cdkStepperNext>
+            <button [disabled]="formArray.get([1]).invalid" type="button" class="button is-outline is-primary"
+              cdkStepperNext>
               <span> Next</span>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronRight" size="fa-lg"> </fa-icon>
@@ -169,7 +170,7 @@
 
         <footer class="my-footer">
           <div class="buttons">
-            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+            <button [disabled]="!isEditable" type="button" class="button is-outline is-warning" cdkStepperPrevious>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronLeft"> </fa-icon>
               </span>

@@ -111,7 +111,7 @@
         </div>
         <footer class="my-footer">
           <div class="buttons">
-            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+            <button [disabled]="!isEditable" type="button" class="button is-outline is-warning" cdkStepperPrevious>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronLeft"> </fa-icon>
               </span>
@@ -172,7 +172,7 @@
 
         <footer class="my-footer">
           <div class="buttons">
-            <button type="button" class="button is-outline is-warning" cdkStepperPrevious>
+            <button [disabled]="!isEditable" type="button" class="button is-outline is-warning" cdkStepperPrevious>
               <span class="icon medium">
                 <fa-icon [icon]="faChevronLeft"> </fa-icon>
               </span>
