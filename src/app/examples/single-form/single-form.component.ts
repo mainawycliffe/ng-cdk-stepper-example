@@ -47,7 +47,7 @@ export class SingleFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.fb.group({
+    this.frmStepper = this.fb.group({
       steps: this.fb.array([
         this.fb.group({
           firstName: ['First Name', Validators.compose([Validators.required])],
